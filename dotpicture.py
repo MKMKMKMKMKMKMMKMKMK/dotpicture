@@ -38,6 +38,12 @@ if uploaded_file is not None:
     # 画像を保存するオプション
     if st.button('画像を保存'):
         dot_art_image.save('dot_art_image.png')
-        st.success('画像を保存しました！')
+        with open('dot_art_image.png', "rb") as file:
+            btn = st.download_button(
+            label='Download Image',
+            data=file,
+            file_name='dot_art_image.png',
+            mime='image/png'
+        )
 
 
